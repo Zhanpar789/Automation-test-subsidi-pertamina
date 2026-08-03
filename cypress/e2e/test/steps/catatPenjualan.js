@@ -6,27 +6,26 @@ const loginPage = new LoginPage();
 const merchantPage = new MerchantPage();
 
 Given("User at Merchant App", () => {
-    cy.wait(5000);
   loginPage.loginViaSession();
-  cy.wait(3000);
+  cy.wait(1000);
   cy.visit('/merchant/app'); 
-  cy.wait(3000);
+  cy.wait(1000);
 });
 
 When("User click Catat Penjualan button", () => {
-    cy.wait(1000);
+    cy.wait(500);
     merchantPage.clickCatatPenjualanButton();
     cy.wait(800);
 });
 
 When("User input KTP Pelanggan to {string}", (Pelanggan) => {
-    cy.wait(1000);
+    cy.wait(500);
     merchantPage.inputKTPPelanggan(Pelanggan);
 });
 
 When("User click Lanjutkan Penjualan button", () => {
     merchantPage.clickLanjutkanPenjualanButton();
-    cy.wait(1500); 
+    cy.wait(2000); 
     cy.get('body').then(($body) => {
         if ($body.find('span:contains("Rumah Tangga")').length > 0) {
             cy.log('Opsi Kategori Muncul! Memilih Rumah Tangga...');
@@ -45,15 +44,15 @@ When("User click Lanjutkan Transaksi button", () => {
 });
 
 When("User click Check Pesanan button", () => {
-    cy.wait(1000);
+    cy.wait(500);
     merchantPage.clickCheckPesananButton();
-    cy.wait(1000);
+    cy.wait(500);
 });
 
 When("User click Proses Penjualan button", () => {
-    cy.wait(1000);
+    cy.wait(500);
     merchantPage.clickProsesPenjualanButton();
-    cy.wait(1000)
+    cy.wait(500)
     cy.pause();
 });
 
