@@ -1,17 +1,16 @@
 Feature: Catat Penjualan Feature
 
-
-Background: 
+  Background: 
     Given User at Merchant App
 
   Scenario Outline: User Melakukan Catat Penjualan "<Pelanggan>"
-   When User click Catat Penjualan button
-   * User input KTP Pelanggan to "<Pelanggan>"
-   * User click Lanjutkan Penjualan button
-   * User click Check Pesanan button
-   * User click Proses Penjualan button
-   Then User Berhasil Mencatat Penjualan
+    When User click Catat Penjualan button
+    * User input KTP Pelanggan to "<Pelanggan>"
+    * User click Lanjutkan Penjualan button
+    * User complete data pelanggan with date "<TanggalLahir>" "<BulanLahir>" "<TahunLahir>" if needed
+    * User click Check Pesanan button
+    * User click Proses Penjualan button
+    Then User Berhasil Mencatat Penjualan
 
 Examples:
-  | Pelanggan        |
-
+  | Pelanggan         | TanggalLahir | BulanLahir | TahunLahir |
